@@ -53,6 +53,7 @@ import { AuthContext } from './auth/AuthContext';
 import ProtectedRoute from './routers/ProtectedRoutes';
 import HomePage from './pages/HomePage';
 import AdminDashboard from './pages/admin/adminDashboard';
+import UserDashboard from './pages/UserDashboard';
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -84,7 +85,7 @@ function App() {
                 {user?.data.role === 'admin' ? (
                   <AdminDashboard />
                 ) : (
-                  <p>User dash</p>
+                  <UserDashboard />
                 )}
               </ProtectedRoute>
             }
