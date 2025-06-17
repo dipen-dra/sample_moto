@@ -12,37 +12,22 @@
 //     { id: 3, customerName: 'Rohan Verma', bikeModel: 'TVS Apache RTR 160', serviceType: 'Brake Repair', status: 'In Progress', date: '2024-07-16', totalCost: 800 },
 //     { id: 4, customerName: 'Sneha Reddy', bikeModel: 'Hero Splendor Plus', serviceType: 'Tire Replacement', status: 'Completed', date: '2024-07-12', totalCost: 1500 },
 //     { id: 5, customerName: 'Vikram Singh', bikeModel: 'Yamaha MT-15', serviceType: 'Full Body Wash', status: 'Cancelled', date: '2024-07-13', totalCost: 300 },
-//     { id: 6, customerName: 'Anjali Gupta', bikeModel: 'Honda Activa 6G', serviceType: 'General Service', status: 'Completed', date: '2024-07-11', totalCost: 1250 },
-//     { id: 7, customerName: 'Karan Malhotra', bikeModel: 'KTM Duke 200', serviceType: 'Chain Lubrication', status: 'Pending', date: '2024-07-17', totalCost: 400 },
 // ];
-
 // const mockUsers = [
 //     { id: 1, name: 'Aarav Sharma', email: 'aarav.sharma@example.com', phone: '9876543210', totalBookings: 3, dateJoined: '2024-01-20' },
 //     { id: 2, name: 'Priya Patel', email: 'priya.patel@example.com', phone: '9876543211', totalBookings: 5, dateJoined: '2023-11-05' },
-//     { id: 3, name: 'Rohan Verma', email: 'rohan.verma@example.com', phone: '9876543212', totalBookings: 1, dateJoined: '2024-05-10' },
-//     { id: 4, name: 'Sneha Reddy', email: 'sneha.reddy@example.com', phone: '9876543213', totalBookings: 8, dateJoined: '2023-09-15' },
-//     { id: 5, name: 'Vikram Singh', email: 'vikram.singh@example.com', phone: '9876543214', totalBookings: 2, dateJoined: '2024-03-22' },
 // ];
-
 // const mockServices = [
 //     { id: 1, name: 'General Service', description: 'Comprehensive checkup and servicing.', price: 1200, duration: '2 hours' },
 //     { id: 2, name: 'Engine Oil Change', description: 'Premium engine oil replacement.', price: 500, duration: '30 minutes' },
-//     { id: 3, name: 'Brake Repair', description: 'Front and rear brake inspection and repair.', price: 800, duration: '1.5 hours' },
-//     { id: 4, name: 'Tire Replacement', description: 'Includes new tire and fitting charges.', price: 1500, duration: '1 hour' },
-//     { id: 5, name: 'Full Body Wash', description: 'Deep cleaning and polishing.', price: 300, duration: '45 minutes' },
-//     { id: 6, name: 'Chain Lubrication', description: 'Cleaning and lubricating the chain set.', price: 400, duration: '25 minutes' },
 // ];
-
 // const revenueData = [
-//     { name: 'Jan', revenue: 40000 }, { name: 'Feb', revenue: 30000 }, { name: 'Mar', revenue: 50000 },
-//     { name: 'Apr', revenue: 45000 }, { name: 'May', revenue: 60000 }, { name: 'Jun', revenue: 75000 },
-//     { name: 'Jul', revenue: 55000 },
+//     { name: 'Jan', revenue: 40000 }, { name: 'Feb', revenue: 30000 }, { name: 'Mar', revenue: 50000 }, { name: 'Apr', revenue: 45000 },
 // ];
-
 // const servicesData = [
 //     { name: 'Gen. Service', bookings: 45 }, { name: 'Oil Change', bookings: 80 }, { name: 'Brake Repair', bookings: 30 },
-//     { name: 'Tire Replace', bookings: 25 }, { name: 'Wash', bookings: 120 }, { name: 'Chain Lube', bookings: 60 },
 // ];
+
 
 // //-///////////////////////////////////////////////////////////////////////////
 // // REUSABLE UI COMPONENTS
@@ -58,11 +43,7 @@
 //     }
 // };
 
-// const Card = ({ children, className = '' }) => (
-//     <div className={`bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg ${className}`}>
-//         {children}
-//     </div>
-// );
+// const Card = ({ children, className = '' }) => (<div className={`bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg ${className}`}>{children}</div>);
 
 // const Modal = ({ isOpen, onClose, title, children }) => {
 //     if (!isOpen) return null;
@@ -71,13 +52,9 @@
 //             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-full max-w-lg max-h-screen overflow-y-auto">
 //                 <div className="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
 //                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{title}</h3>
-//                     <button onClick={onClose} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
-//                         <X size={24} />
-//                     </button>
+//                     <button onClick={onClose} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"><X size={24} /></button>
 //                 </div>
-//                 <div className="p-6">
-//                     {children}
-//                 </div>
+//                 <div className="p-6">{children}</div>
 //             </div>
 //         </div>
 //     );
@@ -90,74 +67,25 @@
 //         secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 focus:ring-gray-500",
 //         danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
 //     };
-//     return (
-//         <button onClick={onClick} className={`${baseClasses} ${variants[variant]} ${className}`} {...props}>
-//             {children}
-//         </button>
-//     );
+//     return (<button onClick={onClick} className={`${baseClasses} ${variants[variant]} ${className}`} {...props}>{children}</button>);
 // };
 
-
-// const ConfirmationModal = ({
-//     isOpen,
-//     onClose,
-//     onConfirm,
-//     title,
-//     message,
-//     confirmText = 'Delete',
-//     confirmButtonVariant = 'danger',
-//     Icon = AlertTriangle,
-//     iconColor = 'text-red-600 dark:text-red-400',
-//     iconBgColor = 'bg-red-100 dark:bg-red-900/50'
-// }) => {
+// const ConfirmationModal = ({ isOpen, onClose, onConfirm, title, message, confirmText = 'Delete', confirmButtonVariant = 'danger', Icon = AlertTriangle, iconColor = 'text-red-600 dark:text-red-400', iconBgColor = 'bg-red-100 dark:bg-red-900/50' }) => {
 //     if (!isOpen) return null;
 //     return (
 //         <Modal isOpen={isOpen} onClose={onClose} title="">
 //             <div className="text-center">
-//                 <div className={`mx-auto flex items-center justify-center h-12 w-12 rounded-full ${iconBgColor}`}>
-//                     <Icon className={`h-6 w-6 ${iconColor}`} />
-//                 </div>
+//                 <div className={`mx-auto flex items-center justify-center h-12 w-12 rounded-full ${iconBgColor}`}><Icon className={`h-6 w-6 ${iconColor}`} /></div>
 //                 <h3 className="mt-5 text-lg font-medium text-gray-900 dark:text-white">{title}</h3>
-//                 <div className="mt-2 px-7 py-3">
-//                     <p className="text-sm text-gray-500 dark:text-gray-400">{message}</p>
-//                 </div>
+//                 <div className="mt-2 px-7 py-3"><p className="text-sm text-gray-500 dark:text-gray-400">{message}</p></div>
 //                 <div className="flex justify-center gap-3 mt-4">
-//                     <Button variant="secondary" onClick={onClose}>
-//                         Cancel
-//                     </Button>
-//                     <Button variant={confirmButtonVariant} onClick={onConfirm}>
-//                         {confirmText}
-//                     </Button>
+//                     <Button variant="secondary" onClick={onClose}>Cancel</Button>
+//                     <Button variant={confirmButtonVariant} onClick={onConfirm}>{confirmText}</Button>
 //                 </div>
 //             </div>
 //         </Modal>
 //     );
 // };
-
-// // const ConfirmationModal = ({ isOpen, onClose, onConfirm, title, message }) => {
-// //     if (!isOpen) return null;
-// //     return (
-// //         <Modal isOpen={isOpen} onClose={onClose} title="">
-// //             <div className="text-center">
-// //                 <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 dark:bg-red-900/50">
-// //                     <AlertTriangle className="h-6 w-6 text-red-600 dark:text-red-400" />
-// //                 </div>
-// //                 <h3 className="mt-5 text-lg font-medium text-gray-900 dark:text-white">{title}</h3>
-// //                 <div className="mt-2 px-7 py-3">
-// //                     <p className="text-sm text-gray-500 dark:text-gray-400">{message}</p>
-// //                 </div>
-// //                 <div className="flex justify-center gap-3 mt-4">
-// //                     <Button variant="secondary" onClick={onClose}>
-// //                         Cancel
-// //                     </Button>
-// //                     <Button variant="danger" onClick={onConfirm}>
-// //                         Delete
-// //                     </Button>
-// //                 </div>
-// //             </div>
-// //         </Modal>
-// //     );
-// // };
 
 // const Input = ({ id, label, ...props }) => (
 //     <div>
@@ -166,11 +94,8 @@
 //     </div>
 // );
 
-// const StatusBadge = ({ status }) => (
-//     <span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${getStatusColor(status)}`}>
-//         {status}
-//     </span>
-// );
+// const StatusBadge = ({ status }) => (<span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${getStatusColor(status)}`}>{status}</span>);
+
 
 // //-///////////////////////////////////////////////////////////////////////////
 // // PAGE COMPONENTS
@@ -263,38 +188,14 @@
 //     const [itemToDelete, setItemToDelete] = useState(null);
 
 //     const filteredBookings = bookings.filter(b =>
-//         b.customerName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-//         b.bikeModel.toLowerCase().includes(searchTerm.toLowerCase()) ||
-//         b.serviceType.toLowerCase().includes(searchTerm.toLowerCase())
+//         b.customerName.toLowerCase().includes(searchTerm.toLowerCase()) || b.bikeModel.toLowerCase().includes(searchTerm.toLowerCase()) || b.serviceType.toLowerCase().includes(searchTerm.toLowerCase())
 //     );
 
-//     const handleEdit = (booking) => {
-//         setEditingBooking(booking);
-//         setIsModalOpen(true);
-//     };
-
-//     const handleDeleteClick = (id) => {
-//         setItemToDelete(id);
-//         setConfirmOpen(true);
-//     };
-
-//     const confirmDelete = () => {
-//         setBookings(bookings.filter(b => b.id !== itemToDelete));
-//         setConfirmOpen(false);
-//         setItemToDelete(null);
-//     };
-
-//     const handleSave = (formData) => {
-//         if (editingBooking) {
-//             setBookings(bookings.map(b => b.id === editingBooking.id ? { ...b, ...formData } : b));
-//         }
-//         closeModal();
-//     };
-
-//     const closeModal = () => {
-//         setIsModalOpen(false);
-//         setEditingBooking(null);
-//     };
+//     const handleEdit = (booking) => { setEditingBooking(booking); setIsModalOpen(true); };
+//     const handleDeleteClick = (id) => { setItemToDelete(id); setConfirmOpen(true); };
+//     const confirmDelete = () => { setBookings(bookings.filter(b => b.id !== itemToDelete)); setConfirmOpen(false); setItemToDelete(null); };
+//     const handleSave = (formData) => { if (editingBooking) { setBookings(bookings.map(b => b.id === editingBooking.id ? { ...b, ...formData } : b)); } closeModal(); };
+//     const closeModal = () => { setIsModalOpen(false); setEditingBooking(null); };
 
 //     return (
 //         <div className="space-y-6">
@@ -341,21 +242,9 @@
 //     const [isConfirmOpen, setConfirmOpen] = useState(false);
 //     const [itemToDelete, setItemToDelete] = useState(null);
 
-//     const filteredUsers = users.filter(u =>
-//         u.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-//         u.email.toLowerCase().includes(searchTerm.toLowerCase())
-//     );
-
-//     const handleDeleteClick = (id) => {
-//         setItemToDelete(id);
-//         setConfirmOpen(true);
-//     };
-
-//     const confirmDelete = () => {
-//         setUsers(users.filter(u => u.id !== itemToDelete));
-//         setConfirmOpen(false);
-//         setItemToDelete(null);
-//     };
+//     const filteredUsers = users.filter(u => u.name.toLowerCase().includes(searchTerm.toLowerCase()) || u.email.toLowerCase().includes(searchTerm.toLowerCase()));
+//     const handleDeleteClick = (id) => { setItemToDelete(id); setConfirmOpen(true); };
+//     const confirmDelete = () => { setUsers(users.filter(u => u.id !== itemToDelete)); setConfirmOpen(false); setItemToDelete(null); };
 
 //     return (
 //         <div className="space-y-6">
@@ -399,27 +288,10 @@
 //     const [isConfirmOpen, setConfirmOpen] = useState(false);
 //     const [itemToDelete, setItemToDelete] = useState(null);
 
-//     const handleAddNew = () => {
-//         setEditingService(null);
-//         setIsModalOpen(true);
-//     };
-
-//     const handleEdit = (service) => {
-//         setEditingService(service);
-//         setIsModalOpen(true);
-//     };
-
-//     const handleDeleteClick = (id) => {
-//         setItemToDelete(id);
-//         setConfirmOpen(true);
-//     };
-
-//     const confirmDelete = () => {
-//         setServices(services.filter(s => s.id !== itemToDelete));
-//         setConfirmOpen(false);
-//         setItemToDelete(null);
-//     };
-
+//     const handleAddNew = () => { setEditingService(null); setIsModalOpen(true); };
+//     const handleEdit = (service) => { setEditingService(service); setIsModalOpen(true); };
+//     const handleDeleteClick = (id) => { setItemToDelete(id); setConfirmOpen(true); };
+//     const confirmDelete = () => { setServices(services.filter(s => s.id !== itemToDelete)); setConfirmOpen(false); setItemToDelete(null); };
 //     const handleSave = (serviceData) => {
 //         if (editingService) {
 //             setServices(services.map(s => s.id === editingService.id ? { ...s, ...serviceData } : s));
@@ -429,11 +301,7 @@
 //         }
 //         closeModal();
 //     };
-
-//     const closeModal = () => {
-//         setIsModalOpen(false);
-//         setEditingService(null);
-//     }
+//     const closeModal = () => { setIsModalOpen(false); setEditingService(null); }
 
 //     return (
 //         <div className="space-y-6">
@@ -472,14 +340,8 @@
 //     const [isEditing, setIsEditing] = useState(false);
 //     const fileInputRef = useRef(null);
 
-//     useEffect(() => {
-//         setProfile(currentUser);
-//     }, [currentUser]);
-
-//     const handleChange = (e) => {
-//         setProfile({ ...profile, [e.target.name]: e.target.value });
-//     }
-
+//     useEffect(() => { setProfile(currentUser); }, [currentUser]);
+//     const handleChange = (e) => { setProfile({ ...profile, [e.target.name]: e.target.value }); }
 //     const handleFileChange = (e) => {
 //         const file = e.target.files[0];
 //         if (file) {
@@ -487,25 +349,10 @@
 //             setProfile(p => ({ ...p, profilePicture: newImageUrl }));
 //         }
 //     };
-
-//     const handleUploadClick = () => {
-//         fileInputRef.current.click();
-//     };
-
-//     const handleSave = () => {
-//         setCurrentUser(profile);
-//         setIsEditing(false);
-//     }
-
-//     const handleCancel = () => {
-//         setProfile(currentUser);
-//         setIsEditing(false);
-//     }
-
-//     const handleImageError = (e) => {
-//         e.target.onerror = null;
-//         e.target.src = `https://placehold.co/128x128/e2e8f0/4a5568?text=MotoFix`;
-//     }
+//     const handleUploadClick = () => { fileInputRef.current.click(); };
+//     const handleSave = () => { setCurrentUser(profile); setIsEditing(false); }
+//     const handleCancel = () => { setProfile(currentUser); setIsEditing(false); }
+//     const handleImageError = (e) => { e.target.onerror = null; e.target.src = `https://placehold.co/128x128/e2e8f0/4a5568?text=MotoFix`; }
 
 //     return (
 //         <div className="space-y-6">
@@ -514,35 +361,16 @@
 //                 <div className="p-6">
 //                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
 //                         <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">Profile Information</h2>
-//                         {!isEditing && (
-//                             <Button onClick={() => setIsEditing(true)}><Edit size={16} />Edit Profile</Button>
-//                         )}
+//                         {!isEditing && (<Button onClick={() => setIsEditing(true)}><Edit size={16} />Edit Profile</Button>)}
 //                     </div>
-
 //                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4">
 //                         <div className="lg:col-span-1 flex flex-col items-center">
-//                             <img
-//                                 key={profile.profilePicture}
-//                                 src={profile.profilePicture || `https://placehold.co/128x128/e2e8f0/4a5568?text=MotoFix`}
-//                                 alt="Profile"
-//                                 className="w-32 h-32 rounded-full object-cover mb-4 ring-4 ring-blue-500/50"
-//                                 onError={handleImageError}
-//                             />
+//                             <img key={profile.profilePicture} src={profile.profilePicture || `https://placehold.co/128x128/e2e8f0/4a5568?text=MotoFix`} alt="Profile" className="w-32 h-32 rounded-full object-cover mb-4 ring-4 ring-blue-500/50" onError={handleImageError} />
 //                             {isEditing && (
 //                                 <div className="w-full space-y-2">
-//                                     <input
-//                                         type="file"
-//                                         ref={fileInputRef}
-//                                         onChange={handleFileChange}
-//                                         className="hidden"
-//                                         accept="image/png, image/jpeg, image/gif"
-//                                     />
-//                                     <Button variant="secondary" className="w-full" onClick={handleUploadClick}>
-//                                         <Camera size={16} /> Change Picture
-//                                     </Button>
-//                                     <Button variant="danger" className="w-full" onClick={() => setProfile(p => ({ ...p, profilePicture: '' }))}>
-//                                         <Trash2 size={16} /> Remove Picture
-//                                     </Button>
+//                                     <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/png, image/jpeg, image/gif" />
+//                                     <Button variant="secondary" className="w-full" onClick={handleUploadClick}><Camera size={16} /> Change Picture</Button>
+//                                     <Button variant="danger" className="w-full" onClick={() => setProfile(p => ({ ...p, profilePicture: '' }))}><Trash2 size={16} /> Remove Picture</Button>
 //                                 </div>
 //                             )}
 //                         </div>
@@ -557,7 +385,6 @@
 //                                 <label htmlFor="address" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Address</label>
 //                                 <textarea id="address" name="address" rows="3" value={profile.address} onChange={handleChange} disabled={!isEditing} className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-200 dark:disabled:bg-gray-700/50 dark:text-white"></textarea>
 //                             </div>
-
 //                             {isEditing && (
 //                                 <div className="flex justify-end gap-3 pt-4">
 //                                     <Button variant="secondary" onClick={handleCancel}>Cancel</Button>
@@ -572,24 +399,10 @@
 //     );
 // };
 
-
-// //-///////////////////////////////////////////////////////////////////////////
-// // FORM MODAL COMPONENTS
-// //-///////////////////////////////////////////////////////////////////////////
-
 // const BookingFormModal = ({ isOpen, onClose, booking, onSave }) => {
 //     const [formData, setFormData] = useState({});
-
-//     useEffect(() => {
-//         if (booking) { setFormData({ status: booking.status, totalCost: booking.totalCost }); }
-//         else { setFormData({ status: 'Pending', totalCost: 0 }); }
-//     }, [booking]);
-
-//     const handleChange = (e) => {
-//         const { name, value } = e.target;
-//         setFormData(prev => ({ ...prev, [name]: value }));
-//     };
-
+//     useEffect(() => { if (booking) { setFormData({ status: booking.status, totalCost: booking.totalCost }); } else { setFormData({ status: 'Pending', totalCost: 0 }); } }, [booking]);
+//     const handleChange = (e) => { const { name, value } = e.target; setFormData(prev => ({ ...prev, [name]: value })); };
 //     const handleSubmit = (e) => { e.preventDefault(); onSave(formData); };
 
 //     return (
@@ -617,17 +430,8 @@
 
 // const ServiceFormModal = ({ isOpen, onClose, onSave, service }) => {
 //     const [formData, setFormData] = useState({ name: '', description: '', price: '', duration: '' });
-
-//     useEffect(() => {
-//         if (service) { setFormData(service); }
-//         else { setFormData({ name: '', description: '', price: '', duration: '' }); }
-//     }, [service]);
-
-//     const handleChange = (e) => {
-//         const { name, value } = e.target;
-//         setFormData(prev => ({ ...prev, [name]: value }));
-//     }
-
+//     useEffect(() => { if (service) { setFormData(service); } else { setFormData({ name: '', description: '', price: '', duration: '' }); } }, [service]);
+//     const handleChange = (e) => { const { name, value } = e.target; setFormData(prev => ({ ...prev, [name]: value })); }
 //     const handleSubmit = (e) => { e.preventDefault(); onSave(formData); }
 
 //     return (
@@ -650,28 +454,63 @@
 // }
 
 // //-///////////////////////////////////////////////////////////////////////////
-// // MAIN ADMIN DASHBOARD COMPONENT & LAYOUT
+// // REFACTORED SIDEBAR COMPONENTS
+// //-///////////////////////////////////////////////////////////////////////////
+
+// const NavLink = ({ page, icon: Icon, children, activePage, onLinkClick }) => {
+//     const fullUrl = `#/admin/${page}`;
+//     const isActive = activePage === page;
+//     return (
+//         <a href={fullUrl} onClick={onLinkClick} className={`flex items-center gap-4 px-4 py-3 rounded-lg transition-colors duration-200 ${isActive ? 'bg-blue-600 text-white font-semibold shadow-lg' : 'text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'}`}>
+//             <Icon size={22} />
+//             <span className="text-md">{children}</span>
+//         </a>
+//     );
+// };
+
+// const SidebarContent = ({ activePage, onLinkClick, onLogoutClick, onMenuClose }) => (
+//     <>
+//         <div className="p-4 flex items-center justify-between">
+//             <div className="flex items-center gap-3">
+//                 <div className="bg-blue-600 p-2 rounded-lg"><Wrench className="text-white" size={24} /></div>
+//                 <h1 className="text-2xl font-bold text-gray-800 dark:text-white">MotoFix</h1>
+//             </div>
+//             {onMenuClose && <button onClick={onMenuClose} className="lg:hidden text-gray-500 dark:text-gray-400"><X size={24} /></button>}
+//         </div>
+//         <nav className="flex-1 px-4 py-6 space-y-2">
+//             <NavLink page="dashboard" icon={BarChart} activePage={activePage} onLinkClick={onLinkClick}>Dashboard</NavLink>
+//             <NavLink page="bookings" icon={List} activePage={activePage} onLinkClick={onLinkClick}>Bookings</NavLink>
+//             <NavLink page="users" icon={Users} activePage={activePage} onLinkClick={onLinkClick}>Users</NavLink>
+//             <NavLink page="services" icon={Wrench} activePage={activePage} onLinkClick={onLinkClick}>Services</NavLink>
+//             <NavLink page="profile" icon={User} activePage={activePage} onLinkClick={onLinkClick}>Profile</NavLink>
+//         </nav>
+//         <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+//             <button
+//                 onClick={onLogoutClick}
+//                 className="w-full flex items-center gap-4 px-4 py-3 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+//             >
+//                 <LogOut size={22} />
+//                 <span className="text-md">Logout</span>
+//             </button>
+//         </div>
+//     </>
+// );
+
+
+// //-///////////////////////////////////////////////////////////////////////////
+// // MAIN ADMIN DASHBOARD COMPONENT
 // //-///////////////////////////////////////////////////////////////////////////
 
 // const AdminDashboard = () => {
-//     const [activePage, setActivePage] = useState(window.location.hash.replace('#/admin/', '') || 'dashboard');
+//     const [activePage, setActivePage] = useState(() => window.location.hash.replace('#/admin/', '') || 'dashboard');
 //     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-//     const [isDarkMode, setIsDarkMode] = useState(() => {
-//         // Initialize theme from localStorage, default to light mode
-//         return localStorage.getItem('adminTheme') === 'dark';
-//     });
 //     const [isLogoutConfirmOpen, setLogoutConfirmOpen] = useState(false);
 //     const [currentUser, setCurrentUser] = useState({
-//         ownerName: 'Admin User',
-//         workshopName: 'MotoFix Central',
-//         email: 'admin@motofix.com',
-//         phone: '9988776655',
-//         address: '123, Main Street, Auto Nagar, Delhi, India',
-//         profilePicture: 'https://i.pravatar.cc/150?u=admin'
+//         ownerName: 'Admin User', workshopName: 'MotoFix Central', email: 'admin@motofix.com', phone: '9988776655', address: '123, Main Street, Auto Nagar, Delhi, India', profilePicture: 'https://i.pravatar.cc/150?u=admin'
 //     });
+//     const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem('adminTheme') === 'dark');
 
 //     useEffect(() => {
-//         // Apply 'dark' class to the html tag and save preference
 //         if (isDarkMode) {
 //             document.documentElement.classList.add('dark');
 //             localStorage.setItem('adminTheme', 'dark');
@@ -679,38 +518,31 @@
 //             document.documentElement.classList.remove('dark');
 //             localStorage.setItem('adminTheme', 'light');
 //         }
-
-//         // Cleanup function to remove the class when the component unmounts
-//         return () => {
-//             document.documentElement.classList.remove('dark');
-//         };
+//         // No cleanup for documentElement.classList.remove('dark') here.
+//         // It should be applied based on isDarkMode state.
 //     }, [isDarkMode]);
-
-//     const toggleTheme = () => {
-//         setIsDarkMode(prevMode => !prevMode);
-//     };
-
-
 
 //     useEffect(() => {
 //         const handleHashChange = () => {
 //             const hash = window.location.hash.replace('#/admin/', '');
-//             if (hash) {
-//                 setActivePage(hash);
-//             } else {
-//                 setActivePage('dashboard');
-//             }
+//             if (hash) { setActivePage(hash); } else { setActivePage('dashboard'); }
 //         };
-
 //         window.addEventListener('hashchange', handleHashChange);
-//         handleHashChange(); // Initial check
+//         handleHashChange();
 //         return () => window.removeEventListener('hashchange', handleHashChange);
 //     }, []);
 
-//     useEffect(() => {
-//         if (isDarkMode) { document.documentElement.classList.add('dark'); }
-//         else { document.documentElement.classList.remove('dark'); }
-//     }, [isDarkMode]);
+//     const handleLogoutConfirm = () => {
+//         localStorage.clear();
+//         // Option 1: Go to the root of your application (e.g., homepage)
+//         window.location.href = '/'; // This will trigger a full page reload
+
+//         // Option 2: Go to a specific hash-based login page (if your app uses hash routing for login)
+//         // window.location.hash = '#/login';
+
+//         // Close the confirmation modal
+//         setLogoutConfirmOpen(false);
+//     };
 
 //     const renderPage = () => {
 //         switch (activePage) {
@@ -725,42 +557,6 @@
 //         }
 //     };
 
-//     const NavLink = ({ page, icon: Icon, children }) => {
-//         const fullUrl = `#/admin/${page}`;
-//         const isActive = activePage === page;
-
-//         return (
-//             <a href={fullUrl} onClick={() => setIsSidebarOpen(false)} className={`flex items-center gap-4 px-4 py-3 rounded-lg transition-colors duration-200 ${isActive ? 'bg-blue-600 text-white font-semibold shadow-lg' : 'text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'}`}>
-//                 <Icon size={22} />
-//                 <span className="text-md">{children}</span>
-//             </a>
-//         );
-//     };
-
-//     const SidebarContent = () => (
-//         <>
-//             <div className="p-4 flex items-center justify-between">
-//                 <div className="flex items-center gap-3">
-//                     <div className="bg-blue-600 p-2 rounded-lg"><Wrench className="text-white" size={24} /></div>
-//                     <h1 className="text-2xl font-bold text-gray-800 dark:text-white">MotoFix</h1>
-//                 </div>
-//                 <button onClick={() => setIsSidebarOpen(false)} className="lg:hidden text-gray-500 dark:text-gray-400"><X size={24} /></button>
-//             </div>
-//             <nav className="flex-1 px-4 py-6 space-y-2">
-//                 <NavLink page="dashboard" icon={BarChart}>Dashboard</NavLink>
-//                 <NavLink page="bookings" icon={List}>Bookings</NavLink>
-//                 <NavLink page="users" icon={Users}>Users</NavLink>
-//                 <NavLink page="services" icon={Wrench}>Services</NavLink>
-//                 <NavLink page="profile" icon={User}>Profile</NavLink>
-//             </nav>
-//             <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-//                 <a href="#/login" onClick={() => localStorage.clear()} className="flex items-center gap-4 px-4 py-3 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
-//                     <LogOut size={22} /><span className="text-md">Logout</span>
-//                 </a>
-//             </div>
-//         </>
-//     );
-
 //     const handleImageError = (e) => {
 //         e.target.onerror = null;
 //         e.target.src = `https://placehold.co/40x40/e2e8f0/4a5568?text=MF`;
@@ -768,11 +564,27 @@
 
 //     return (
 //         <div className={`flex h-screen bg-gray-100 dark:bg-gray-900 font-sans text-gray-900 dark:text-gray-100`}>
+//             {/* Mobile Sidebar */}
 //             <div className={`fixed inset-0 z-40 flex lg:hidden transition-transform duration-300 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-//                 <div className="w-72 bg-white dark:bg-gray-800 shadow-lg flex flex-col"><SidebarContent /></div>
+//                 <div className="w-72 bg-white dark:bg-gray-800 shadow-lg flex flex-col">
+//                     <SidebarContent
+//                         activePage={activePage}
+//                         onLinkClick={() => setIsSidebarOpen(false)}
+//                         onLogoutClick={() => { setIsSidebarOpen(false); setLogoutConfirmOpen(true); }}
+//                         onMenuClose={() => setIsSidebarOpen(false)}
+//                     />
+//                 </div>
 //                 <div className="flex-1 bg-black bg-opacity-50" onClick={() => setIsSidebarOpen(false)}></div>
 //             </div>
-//             <aside className="w-72 bg-white dark:bg-gray-800 shadow-md hidden lg:flex flex-col flex-shrink-0"><SidebarContent /></aside>
+//             {/* Desktop Sidebar */}
+//             <aside className="w-72 bg-white dark:bg-gray-800 shadow-md hidden lg:flex flex-col flex-shrink-0">
+//                 <SidebarContent
+//                     activePage={activePage}
+//                     onLinkClick={() => { }} // No action needed on desktop
+//                     onLogoutClick={() => setLogoutConfirmOpen(true)}
+//                 />
+//             </aside>
+
 //             <div className="flex-1 flex flex-col overflow-hidden">
 //                 <header className="bg-white dark:bg-gray-800 shadow-sm p-4 flex justify-between items-center">
 //                     <button onClick={() => setIsSidebarOpen(true)} className="lg:hidden text-gray-600 dark:text-gray-300"><Menu size={28} /></button>
@@ -782,13 +594,7 @@
 //                             {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
 //                         </button>
 //                         <div className="flex items-center gap-3">
-//                             <img
-//                                 key={currentUser.profilePicture}
-//                                 src={currentUser.profilePicture || `https://placehold.co/40x40/e2e8f0/4a5568?text=MF`}
-//                                 alt="Admin"
-//                                 className="w-10 h-10 rounded-full object-cover"
-//                                 onError={handleImageError}
-//                             />
+//                             <img key={currentUser.profilePicture} src={currentUser.profilePicture || `https://placehold.co/40x40/e2e8f0/4a5568?text=MF`} alt="Admin" className="w-10 h-10 rounded-full object-cover" onError={handleImageError} />
 //                             <div>
 //                                 <p className="font-semibold text-sm">{currentUser.ownerName}</p>
 //                                 <p className="text-xs text-gray-500 dark:text-gray-400">Workshop Owner</p>
@@ -800,6 +606,7 @@
 //                     {renderPage()}
 //                 </main>
 //             </div>
+
 //             <ConfirmationModal
 //                 isOpen={isLogoutConfirmOpen}
 //                 onClose={() => setLogoutConfirmOpen(false)}
@@ -813,7 +620,6 @@
 //                 iconBgColor="bg-red-100 dark:bg-red-900/50"
 //             />
 //         </div>
-
 //     );
 // };
 
@@ -1290,12 +1096,13 @@ const NavLink = ({ page, icon: Icon, children, activePage, onLinkClick }) => {
     );
 };
 
+// Update SidebarContent to use the logo
 const SidebarContent = ({ activePage, onLinkClick, onLogoutClick, onMenuClose }) => (
     <>
         <div className="p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
-                <div className="bg-blue-600 p-2 rounded-lg"><Wrench className="text-white" size={24} /></div>
-                <h1 className="text-2xl font-bold text-gray-800 dark:text-white">MotoFix</h1>
+                {/* MotoFix Logo in Sidebar */}
+                <img src="/motofix-removebg-preview.png" alt="" className="h-20 w-auto" />
             </div>
             {onMenuClose && <button onClick={onMenuClose} className="lg:hidden text-gray-500 dark:text-gray-400"><X size={24} /></button>}
         </div>
@@ -1340,7 +1147,6 @@ const AdminDashboard = () => {
             document.documentElement.classList.remove('dark');
             localStorage.setItem('adminTheme', 'light');
         }
-        return () => { document.documentElement.classList.remove('dark'); };
     }, [isDarkMode]);
 
     useEffect(() => {
@@ -1355,7 +1161,9 @@ const AdminDashboard = () => {
 
     const handleLogoutConfirm = () => {
         localStorage.clear();
-        window.location.hash = '#/login';
+        // Assuming your homepage is the root URL
+        window.location.href = '/';
+        setLogoutConfirmOpen(false);
     };
 
     const renderPage = () => {
@@ -1402,7 +1210,10 @@ const AdminDashboard = () => {
             <div className="flex-1 flex flex-col overflow-hidden">
                 <header className="bg-white dark:bg-gray-800 shadow-sm p-4 flex justify-between items-center">
                     <button onClick={() => setIsSidebarOpen(true)} className="lg:hidden text-gray-600 dark:text-gray-300"><Menu size={28} /></button>
-                    <div className="hidden lg:block"></div>
+                    {/* MotoFix Logo in Header (visible on larger screens when sidebar is hidden) */}
+                    <div className="hidden lg:flex items-center">
+                        {/* <img src="/motofix-removebg-preview.png" alt="MotoFix Logo" className="h-8 w-auto" /> */}
+                    </div>
                     <div className="flex items-center gap-4">
                         <button onClick={() => setIsDarkMode(!isDarkMode)} className="text-gray-600 dark:text-gray-300 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
                             {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
